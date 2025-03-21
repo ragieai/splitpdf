@@ -1,4 +1,4 @@
-module github.com/bobuser/splitpdf
+module github.com/ragieai/splitpdf
 
 go 1.24.1
 

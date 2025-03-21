@@ -19,8 +19,26 @@ This will install the `splitpdf` binary to your `$GOPATH/bin` directory, which s
 Compile the tool:
 
 ```bash
+# Clone the repository
+git clone https://github.com/ragieai/splitpdf.git
+cd splitpdf
+
+# Resolve dependencies
+go mod tidy
+
+# Build the executable
 go build -o splitpdf cmd/splitpdf/main.go
 ```
+
+## Troubleshooting
+
+If you encounter build errors related to missing dependencies, run:
+
+```bash
+go mod tidy
+```
+
+This will download the required dependencies and update the go.sum file.
 
 ## Usage
 

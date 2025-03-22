@@ -52,7 +52,7 @@ func splitPDF(inputFile string, outputDir string, pagesPerSplit int) error {
 			endPage = totalPages
 		}
 
-		// Create page selection string for pdfcpu (as a slice of strings)
+		// Create page selection string for pdfcpu
 		pageSelection := []string{fmt.Sprintf("%d-%d", startPage, endPage)}
 
 		// Output filename format: NAME-part0N.pdf
@@ -62,9 +62,9 @@ func splitPDF(inputFile string, outputDir string, pagesPerSplit int) error {
 		// Configure the split
 		conf := model.NewDefaultConfiguration()
 
-		// Extract pages to new PDF
-		if err := api.ExtractPagesFile(inputFile, outputPath, pageSelection, conf); err != nil {
-			return fmt.Errorf("error extracting pages %v to %s: %w", pageSelection, outputPath, err)
+		// Use TrimFile to create a new PDF with the selected page range
+		if err := api.TrimFile(inputFile, outputPath, pageSelection, conf); err != nil {
+			return fmt.Errorf("error creating PDF with pages %v to %s: %w", pageSelection, outputPath, err)
 		}
 
 		fmt.Printf("Created %s with pages %d to %d\n", outputPath, startPage, endPage)

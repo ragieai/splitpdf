@@ -43,7 +43,7 @@ This will download the required dependencies and update the go.sum file.
 ## Usage
 
 ```bash
-./splitpdf [path/to/input.pdf] [flags]
+splitpdf [path/to/input.pdf] [flags]
 ```
 
 ### Flags
@@ -57,23 +57,23 @@ This will download the required dependencies and update the go.sum file.
 Split a PDF into chunks of 100 pages each:
 
 ```bash
-./splitpdf large_document.pdf --pages 100
+splitpdf large_document.pdf --pages 100
 ```
 
 Save the output files to a specific directory:
 
 ```bash
-./splitpdf large_document.pdf --output-dir ./split_output --pages 200
+splitpdf large_document.pdf --output-dir ./split_output --pages 200
 ```
 
 The command supports flexible flag positioning:
 
 ```bash
 # Flags before the argument
-./splitpdf --pages 100 large_document.pdf
+splitpdf --pages 100 large_document.pdf
 
 # Flags after the argument
-./splitpdf large_document.pdf --pages 100
+splitpdf large_document.pdf --pages 100
 ```
 
 ## Dependencies
